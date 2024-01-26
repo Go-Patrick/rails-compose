@@ -2,7 +2,6 @@ version: '3.3'
 services:
   rails:
     image: IMAGE
-    container_name: comana_production_app
     restart: always
     volumes:
       - public_assets:/app/public
