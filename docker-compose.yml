@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  rails:
+    image: IMAGE
+    container_name: comana_production_app
+    restart: always
+    volumes:
+      - public_assets:/app/public
+
+  nginx:
+    image: nginx
+    restart: always
+    depends_on:
+      - rails
+    volumes:
+      - public_assets:/app/public
+      - ./docker/rails.conf:/etc/nginx/conf.d/default.conf:ro
+
+volumes:
+  public_assets:
